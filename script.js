@@ -1,88 +1,127 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mainNav = document.querySelector(".main-nav");
+document.addEventListener("DOMContentLoaded", function () {
+  // 手機選單
+  var menuToggle = document.querySelector(".menu-toggle");
+  var mainNav = document.querySelector(".main-nav");
 
   if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = mainNav.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
+    var navLinks = mainNav.querySelectorAll("a");
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
         mainNav.classList.remove("open");
         menuToggle.setAttribute("aria-expanded", "false");
       });
     });
   }
 
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const tabPanels = document.querySelectorAll(".tab-panel");
+  // 課表 Tabs 切換
+  var tabButtons = document.querySelectorAll(".tab-btn");
+  var tabPanels = document.querySelectorAll(".tab-panel");
 
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const target = button.dataset.tab;
+  tabButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var target = button.getAttribute("data-tab");
 
-      tabButtons.forEach((btn) => btn.classList.remove("active"));
-      tabPanels.forEach((panel) => panel.classList.remove("active"));
+      tabButtons.forEach(function (btn) {
+        btn.classList.remove("active");
+      });
+
+      tabPanels.forEach(function (panel) {
+        panel.classList.remove("active");
+      });
 
       button.classList.add("active");
-      document.getElementById(target)?.classList.add("active");
+
+      var targetPanel = document.getElementById(target);
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+      }
     });
   });
 
-  const slides = document.querySelectorAll(".slide");
-  const prevButton = document.querySelector(".carousel-btn.prev");
-  const nextButton = document.querySelector(".carousel-btn.next");
-  let currentSlide = 0;
+  // 榜單輪播
+  var slides = document.querySelectorAll(".slide");
+  var prevButton = document.querySelector(".carousel-btn.prev");
+  var nextButton = document.querySelector(".carousel-btn.next");
+  var currentSlide = 0;
 
   function showSlide(index) {
-    if (!slides.length) return;
-    slides.forEach((slide) => slide.classList.remove("active"));
+    if (!slides || slides.length === 0) return;
+
+    slides.forEach(function (slide) {
+      slide.classList.remove("active");
+    });
+
     slides[index].classList.add("active");
   }
 
   function nextSlide() {
+    if (!slides || slides.length === 0) return;
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
   }
 
   function prevSlide() {
+    if (!slides || slides.length === 0) return;
     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
     showSlide(currentSlide);
   }
 
-  nextButton?.addEventListener("click", nextSlide);
-  prevButton?.addEventListener("click", prevSlide);
+  if (nextButton) {
+    nextButton.addEventListener("click", nextSlide);
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener("click", prevSlide);
+  }
 
   if (slides.length > 1) {
     setInterval(nextSlide, 4500);
   }
 
-  const form = document.querySelector(".lead-form");
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    alert("已收到您的諮詢資料。正式上線時可串接 Google Form、Tally 或 LINE。");
-    form.reset();
-  });
+  // 表單送出提示
+  var form = document.querySelector(".lead-form");
 
-  const animatedElements = document.querySelectorAll(
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      alert("已收到您的諮詢資料。正式上線時可串接 Google Form、Tally 或 LINE。");
+      form.reset();
+    });
+  }
+
+  // 滾動進場動畫
+  var animatedElements = document.querySelectorAll(
     ".section-heading, .stat-card, .feature-card, .course-card, .program-grid div, .schedule-card, .why-grid article, .line-card, .map-placeholder"
   );
 
-  animatedElements.forEach((element) => element.classList.add("fade-in"));
+  animatedElements.forEach(function (element) {
+    element.classList.add("fade-in");
+  });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
 
-  animatedElements.forEach((element) => observer.observe(element));
+    animatedElements.forEach(function (element) {
+      observer.observe(element);
+    });
+  } else {
+    animatedElements.forEach(function (element) {
+      element.classList.add("show");
+    });
+  }
 });
