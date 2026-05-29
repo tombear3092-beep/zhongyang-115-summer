@@ -299,8 +299,15 @@ img {
 }
 
 .hero-meta span {
+  display: block;
   color: var(--muted);
   font-weight: 700;
+  line-height: 1.7;
+}
+
+.hero-meta a {
+  color: var(--green);
+  font-weight: 900;
 }
 
 .hero-visual {
