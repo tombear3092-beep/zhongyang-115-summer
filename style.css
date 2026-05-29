@@ -1097,34 +1097,40 @@ textarea:focus {
 .map-placeholder {
   min-height: 260px;
 }
-  .mobile-cta {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 60;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 10px 12px;
-    background: rgba(255, 248, 236, 0.96);
-    backdrop-filter: blur(14px);
-    border-top: 1px solid var(--line);
-  }
+.mobile-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 10px 10px;
+  background: rgba(255, 248, 236, 0.96);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+}
 
-  .mobile-cta a {
-    display: grid;
-    place-items: center;
-    min-height: 48px;
-    border-radius: 999px;
-    color: #fff;
-    background: linear-gradient(135deg, var(--green), var(--green-2));
-    font-weight: 900;
-  }
+.mobile-cta a {
+  display: grid;
+  place-items: center;
+  min-height: 48px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--green), var(--green-2));
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+}
 
-  .mobile-cta a:last-child {
-    background: linear-gradient(135deg, var(--gold), #f97316);
-  }
+.mobile-cta a:nth-child(2) {
+  background: linear-gradient(135deg, var(--navy), var(--green));
+}
+
+.mobile-cta a:nth-child(3) {
+  background: linear-gradient(135deg, var(--gold), #f97316);
+}
 
   .site-footer {
     padding-bottom: 92px;
