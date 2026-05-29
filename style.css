@@ -1119,7 +1119,7 @@ textarea:focus {
   border-radius: 999px;
   color: #fff;
   background: linear-gradient(135deg, var(--green), var(--green-2));
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 900;
   white-space: nowrap;
 }
