@@ -160,10 +160,15 @@ img {
 .nav-cta {
   padding: 11px 18px;
   border-radius: 999px;
-  background: var(--green);
+  background: linear-gradient(135deg, var(--green), var(--green-2));
   color: #fff;
   font-weight: 900;
   box-shadow: 0 12px 28px rgba(30, 90, 168, 0.18);
+}
+
+.nav-cta:hover,
+.mobile-cta a:hover {
+  filter: brightness(1.04);
 }
 
 .menu-toggle {
@@ -186,12 +191,13 @@ img {
   background: var(--green);
 }
 
+/* Hero */
 .hero {
   position: relative;
   overflow: hidden;
   padding-top: 74px;
   background:
-    radial-gradient(circle at 15% 12%, rgba(215, 164, 65, 0.22), transparent 25%),
+    radial-gradient(circle at 15% 12%, rgba(245, 158, 11, 0.20), transparent 25%),
     radial-gradient(circle at 85% 10%, rgba(30, 90, 168, 0.14), transparent 30%),
     linear-gradient(135deg, var(--cream), #ffffff 50%, #eef6ff);
 }
@@ -202,7 +208,7 @@ img {
   inset: auto -120px -150px auto;
   width: 440px;
   height: 440px;
-  background: rgba(215, 164, 65, 0.15);
+  background: rgba(245, 158, 11, 0.12);
   border-radius: 50%;
 }
 
@@ -246,6 +252,20 @@ img {
   border: 1px solid var(--line);
   color: var(--green);
   font-weight: 800;
+}
+
+.hero-badges span:nth-child(2),
+.program-grid div:nth-child(3n + 2) {
+  color: var(--navy);
+  border-color: rgba(245, 158, 11, 0.24);
+  background: rgba(255, 209, 102, 0.16);
+}
+
+.hero-badges span:nth-child(3),
+.program-grid div:nth-child(3n) {
+  color: #0f766e;
+  border-color: rgba(125, 211, 199, 0.35);
+  background: rgba(125, 211, 199, 0.16);
 }
 
 .btn {
@@ -310,22 +330,27 @@ img {
   font-weight: 900;
 }
 
+/* 改良後右側主視覺：避免 floating-card 跑版 */
 .hero-visual {
   position: relative;
-  min-height: 480px;
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .visual-card-main {
-  position: absolute;
-  inset: 70px 40px auto 40px;
-  min-height: 330px;
-  padding: 42px;
+  position: relative;
+  width: min(100%, 520px);
+  min-height: 360px;
+  padding: 54px 48px 130px;
   border-radius: 36px;
   background:
-    linear-gradient(145deg, rgba(255,255,255,0.92), rgba(255,250,240,0.92)),
-    repeating-linear-gradient(90deg, transparent 0 38px, rgba(30,90,168,0.05) 39px 40px);
+    linear-gradient(145deg, rgba(255,255,255,0.96), rgba(255,248,236,0.94)),
+    repeating-linear-gradient(90deg, transparent 0 38px, rgba(30,90,168,0.04) 39px 40px);
   border: 1px solid rgba(30, 90, 168, 0.12);
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .visual-card-main .award {
@@ -337,28 +362,32 @@ img {
   background: linear-gradient(135deg, var(--gold), var(--gold-2));
   color: var(--green);
   font-size: 42px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .visual-card-main h2 {
-  margin: 0 0 14px;
-  font-size: 42px;
+  margin: 0 0 16px;
+  font-size: 44px;
   color: var(--green);
-  line-height: 1.15;
+  line-height: 1.14;
+  letter-spacing: -0.04em;
 }
 
 .visual-card-main p {
   color: var(--navy);
-  font-weight: 800;
+  font-weight: 900;
+  font-size: 18px;
+  margin: 0;
 }
 
 .floating-card {
   position: absolute;
-  padding: 18px 22px;
+  width: 160px;
+  padding: 18px 20px;
   border-radius: 20px;
-  background: var(--navy);
   color: #fff;
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 36px rgba(18, 48, 71, 0.16);
+  z-index: 2;
 }
 
 .floating-card strong,
@@ -366,32 +395,43 @@ img {
   display: block;
 }
 
+.floating-card strong {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
 .floating-card span {
-  color: #cbd5e1;
+  margin-top: 4px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 700;
 }
 
 .card-a {
-  top: 34px;
-  right: 0;
+  top: 28px;
+  right: 8px;
+  background: var(--navy);
 }
 
 .card-b {
-  bottom: 54px;
-  left: 0;
-  background: var(--green);
+  left: 8px;
+  bottom: 42px;
+  background: linear-gradient(135deg, var(--green), var(--green-2));
 }
 
 .growth-line {
   position: absolute;
-  right: 16px;
-  bottom: 74px;
-  width: 210px;
-  height: 6px;
+  right: 46px;
+  bottom: 72px;
+  width: 250px;
+  height: 7px;
   background: linear-gradient(90deg, var(--gold), var(--green));
   border-radius: 999px;
-  transform: rotate(-18deg);
+  transform: rotate(-16deg);
+  z-index: 1;
+  opacity: 0.9;
 }
 
+/* Sections */
 .trust-section,
 .summer-section,
 .contact-section {
@@ -485,7 +525,7 @@ img {
   font-size: 30px;
   font-weight: 900;
   background:
-    linear-gradient(135deg, rgba(30,90,168,0.08), rgba(215,164,65,0.16)),
+    linear-gradient(135deg, rgba(30,90,168,0.08), rgba(245,158,11,0.16)),
     repeating-linear-gradient(45deg, rgba(30,90,168,0.05) 0 10px, transparent 10px 20px);
   border: 1px dashed rgba(30, 90, 168, 0.26);
   border-radius: var(--radius);
@@ -503,7 +543,7 @@ img {
   height: 44px;
   border: 0;
   border-radius: 50%;
-  background: var(--green);
+  background: linear-gradient(135deg, var(--green), var(--green-2));
   color: #fff;
   font-size: 32px;
   cursor: pointer;
@@ -526,7 +566,7 @@ img {
   height: 36px;
   padding: 0 12px;
   border-radius: 999px;
-  background: rgba(215, 164, 65, 0.18);
+  background: rgba(245, 158, 11, 0.18);
   color: var(--green);
   font-weight: 900;
 }
@@ -542,8 +582,7 @@ img {
 }
 
 .course-section {
-  background:
-    linear-gradient(180deg, var(--cream), #eef6ff);
+  background: linear-gradient(180deg, var(--cream), #eef6ff);
 }
 
 .course-grid {
@@ -630,7 +669,7 @@ img {
 }
 
 .tab-btn.active {
-  background: var(--green);
+  background: linear-gradient(135deg, var(--green), var(--green-2));
   color: #fff;
   box-shadow: 0 10px 24px rgba(30, 90, 168, 0.18);
 }
@@ -763,43 +802,7 @@ textarea:focus {
   transform: translateY(0);
 }
 
-
-/* Scheme A polish: academy blue + warm orange + clean summer tone */
-.nav-cta:hover,
-.mobile-cta a:hover {
-  filter: brightness(1.04);
-}
-
-.hero-badges span:nth-child(2),
-.program-grid div:nth-child(3n + 2) {
-  color: var(--navy);
-  border-color: rgba(245, 158, 11, 0.24);
-  background: rgba(255, 209, 102, 0.16);
-}
-
-.hero-badges span:nth-child(3),
-.program-grid div:nth-child(3n) {
-  color: #0f766e;
-  border-color: rgba(125, 211, 199, 0.35);
-  background: rgba(125, 211, 199, 0.16);
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary, var(--green)), var(--green-2));
-}
-
-.nav-cta,
-.tab-btn.active,
-.carousel-btn,
-.mobile-cta a:first-child {
-  background: linear-gradient(135deg, var(--green), var(--green-2));
-}
-
-.mobile-cta a:last-child {
-  background: linear-gradient(135deg, var(--gold), #f97316);
-}
-
-
+/* Tablet */
 @media (max-width: 980px) {
   .nav-cta,
   .main-nav {
@@ -856,6 +859,7 @@ textarea:focus {
   }
 }
 
+/* Mobile */
 @media (max-width: 640px) {
   .container {
     width: min(100% - 28px, 1120px);
@@ -891,33 +895,54 @@ textarea:focus {
   }
 
   .hero-visual {
-    min-height: 360px;
+    min-height: auto;
+    padding: 10px 0 0;
   }
 
   .visual-card-main {
-    inset: 30px 0 auto 0;
-    min-height: 290px;
-    padding: 28px;
+    width: 100%;
+    min-height: auto;
+    padding: 32px 24px 150px;
+    border-radius: 28px;
   }
 
   .visual-card-main h2 {
-    font-size: 32px;
+    font-size: 34px;
+  }
+
+  .visual-card-main p {
+    font-size: 16px;
+  }
+
+  .floating-card {
+    width: calc(50% - 18px);
+    padding: 14px 16px;
+  }
+
+  .floating-card strong {
+    font-size: 15px;
+  }
+
+  .floating-card span {
+    font-size: 14px;
   }
 
   .card-a {
-    right: 0;
-    top: 0;
+    top: auto;
+    right: 20px;
+    bottom: 28px;
   }
 
   .card-b {
-    left: 0;
-    bottom: 20px;
+    left: 20px;
+    bottom: 28px;
   }
 
   .growth-line {
-    width: 150px;
-    right: 20px;
-    bottom: 46px;
+    right: 28px;
+    bottom: 112px;
+    width: 180px;
+    height: 6px;
   }
 
   .stats-grid,
@@ -964,12 +989,12 @@ textarea:focus {
     min-height: 48px;
     border-radius: 999px;
     color: #fff;
-    background: var(--green);
+    background: linear-gradient(135deg, var(--green), var(--green-2));
     font-weight: 900;
   }
 
   .mobile-cta a:last-child {
-    background: var(--navy);
+    background: linear-gradient(135deg, var(--gold), #f97316);
   }
 
   .site-footer {
