@@ -775,7 +775,37 @@ textarea:focus {
   font-weight: 800;
   color: var(--navy);
 }
+.campus-list {
+  display: grid;
+  gap: 28px;
+}
 
+.campus-card {
+  padding: 28px;
+  border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 34px rgba(16, 42, 67, 0.07);
+}
+
+.campus-card h2 {
+  margin-bottom: 18px;
+}
+
+.campus-card .contact-info {
+  margin: 10px 0;
+}
+
+.campus-card .contact-actions {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.campus-card .btn {
+  width: 100%;
+}
 .map-placeholder {
   min-height: 330px;
 }
@@ -967,7 +997,27 @@ textarea:focus {
     min-height: 220px;
     font-size: 24px;
   }
+.campus-card {
+  padding: 24px 20px;
+}
 
+.campus-card h2 {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.campus-card .contact-info {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.campus-card .contact-actions {
+  grid-template-columns: 1fr;
+}
+
+.campus-card .btn {
+  min-height: 54px;
+}
   .mobile-cta {
     position: fixed;
     left: 0;
