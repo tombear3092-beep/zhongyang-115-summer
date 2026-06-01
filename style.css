@@ -1104,7 +1104,7 @@ textarea:focus {
   bottom: 0;
   z-index: 60;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
   padding: 10px 10px;
   background: rgba(255, 248, 236, 0.96);
@@ -1124,14 +1124,13 @@ textarea:focus {
   white-space: nowrap;
 }
 
+.mobile-cta a:nth-child(1) {
+  background: linear-gradient(135deg, var(--green), var(--green-2));
+}
+
 .mobile-cta a:nth-child(2) {
   background: linear-gradient(135deg, var(--navy), var(--green));
 }
-
-.mobile-cta a:nth-child(3) {
-  background: linear-gradient(135deg, var(--gold), #f97316);
-}
-
   .site-footer {
     padding-bottom: 92px;
   }
