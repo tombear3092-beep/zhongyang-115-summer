@@ -539,9 +539,12 @@
           <p class="contact-info">地址：台南市中西區忠義路一段 65 號</p>
           <p class="contact-info">電話：<a href="tel:062153050">06-215-3050</a></p>
 
-          <div class="contact-actions">
+          <div class="contact-actions contact-actions-3">
             <a class="btn btn-primary" href="tel:062153050">立即撥打</a>
             <a class="btn btn-secondary" href="#trial">預約試聽</a>
+            <button class="btn btn-secondary map-switch active" type="button" data-map="jianguo">
+              查看建中校地圖
+            </button>
           </div>
         </div>
 
@@ -550,18 +553,34 @@
           <p class="contact-info">地址：台南市北區成功路 256 號</p>
           <p class="contact-info">電話：<a href="tel:062219399">06-221-9399</a></p>
 
-          <div class="contact-actions">
+          <div class="contact-actions contact-actions-3">
             <a class="btn btn-primary" href="tel:062219399">立即撥打</a>
             <a class="btn btn-secondary" href="#trial">預約試聽</a>
+            <button class="btn btn-secondary map-switch" type="button" data-map="chenggong">
+              查看成功校地圖
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="map-placeholder">
-      Google Map Placeholder<br />
-      <small>正式版可嵌入 Google 地圖</small>
-    </div>
+    <aside class="map-panel" aria-label="中央補習班校區地圖">
+      <div class="map-panel-heading">
+        <p class="eyebrow">Map</p>
+        <h2 id="campusMapTitle">中央補習班 建中校地圖</h2>
+        <p id="campusMapAddress">台南市中西區忠義路一段 65 號</p>
+      </div>
+
+      <div class="map-embed">
+        <iframe
+          id="campusMap"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0113720962286!2d120.20169469999999!3d22.986609299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e767c312c26ff%3A0x32ab3f57aeb53cab!2zNzAw6Ie65Y2X5biC5Lit6KW_5Y2A5Y2X6ZaA6YeM5b-g576p6Lev5LiA5q61NjMtNjXomZ8!5e0!3m2!1szh-TW!2stw!4v1780316583667!5m2!1szh-TW!2stw"
+          loading="lazy"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </aside>
   </div>
 </section>
   </main>
