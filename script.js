@@ -83,6 +83,47 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(nextSlide, 4500);
   }
 
+
+
+  // 圖片放大預覽：榜單與課表圖片可點擊放大
+  var zoomableImages = document.querySelectorAll(".honor-gallery img, .timetable-image-card img");
+
+  if (zoomableImages.length > 0) {
+    var lightbox = document.createElement("div");
+    lightbox.className = "image-lightbox";
+    lightbox.innerHTML = '<button type="button" aria-label="關閉圖片預覽">×</button><img src="" alt="" />';
+    document.body.appendChild(lightbox);
+
+    var lightboxImage = lightbox.querySelector("img");
+    var closeButton = lightbox.querySelector("button");
+
+    zoomableImages.forEach(function (image) {
+      image.addEventListener("click", function () {
+        lightboxImage.src = image.getAttribute("src");
+        lightboxImage.alt = image.getAttribute("alt") || "圖片預覽";
+        lightbox.classList.add("open");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightboxImage.src = "";
+    }
+
+    closeButton.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+  }
+
   // 表單送出提示
   var form = document.querySelector(".lead-form");
 
@@ -96,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 滾動進場動畫
   var animatedElements = document.querySelectorAll(
-    ".section-heading, .stat-card, .feature-card, .course-card, .program-grid div, .schedule-card, .why-grid article, .line-card, .map-placeholder, .honor-copy, .honor-card, .elite-intro, .elite-advantage-grid article"
+    ".section-heading, .stat-card, .feature-card, .course-card, .program-grid div, .schedule-card, .why-grid article, .line-card, .map-placeholder, .honor-copy, .honor-card, .gallery-item, .timetable-image-card, .elite-intro, .elite-advantage-grid article"
   );
 
   animatedElements.forEach(function (element) {
