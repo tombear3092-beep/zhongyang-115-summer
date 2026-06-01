@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  mapSwitchButtons.forEach(function (button) {
+   mapSwitchButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       var mapKey = button.getAttribute("data-map");
       var selectedMap = campusMaps[mapKey];
@@ -251,6 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       button.classList.add("active");
     });
-  };
+  });
 
 });
