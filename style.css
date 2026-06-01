@@ -1892,3 +1892,51 @@ textarea:focus {
   }
 }
 
+/* ===== Final mobile CTA override: 2 equal full-width buttons ===== */
+@media (max-width: 640px) {
+  .mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: none;
+    z-index: 999;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 248, 236, 0.96);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+    box-sizing: border-box;
+  }
+
+  .mobile-cta a {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .mobile-cta a:nth-child(1) {
+    background: linear-gradient(135deg, var(--green), var(--green-2));
+  }
+
+  .mobile-cta a:nth-child(2) {
+    background: linear-gradient(135deg, var(--navy), var(--green));
+  }
+
+  .site-footer {
+    padding-bottom: 96px;
+  }
+}
+
