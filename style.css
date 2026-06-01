@@ -2270,3 +2270,7 @@ textarea:focus {
     transform: translateY(0);
   }
 }
+.text-blue {
+  color: var(--green-2);
+  font-weight: 900;
+}
