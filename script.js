@@ -253,4 +253,71 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+
+  // Hero 右側圖片輪播
+  var heroSlides = document.querySelectorAll(".hero-slide");
+  var heroPrevButton = document.querySelector(".hero-carousel-btn.prev");
+  var heroNextButton = document.querySelector(".hero-carousel-btn.next");
+  var heroDots = document.querySelectorAll(".hero-carousel-dots button");
+  var heroSlideIndex = 0;
+  var heroTimer = null;
+
+  function showHeroSlide(index) {
+    if (!heroSlides.length) return;
+
+    heroSlideIndex = (index + heroSlides.length) % heroSlides.length;
+
+    heroSlides.forEach(function (slide, slideIndex) {
+      slide.classList.toggle("active", slideIndex === heroSlideIndex);
+    });
+
+    heroDots.forEach(function (dot, dotIndex) {
+      dot.classList.toggle("active", dotIndex === heroSlideIndex);
+    });
+  }
+
+  function nextHeroSlide() {
+    showHeroSlide(heroSlideIndex + 1);
+  }
+
+  function startHeroCarousel() {
+    if (heroSlides.length <= 1) return;
+    stopHeroCarousel();
+    heroTimer = setInterval(nextHeroSlide, 4200);
+  }
+
+  function stopHeroCarousel() {
+    if (heroTimer) {
+      clearInterval(heroTimer);
+      heroTimer = null;
+    }
+  }
+
+  if (heroSlides.length) {
+    showHeroSlide(0);
+    startHeroCarousel();
+  }
+
+  if (heroPrevButton) {
+    heroPrevButton.addEventListener("click", function () {
+      showHeroSlide(heroSlideIndex - 1);
+      startHeroCarousel();
+    });
+  }
+
+  if (heroNextButton) {
+    heroNextButton.addEventListener("click", function () {
+      showHeroSlide(heroSlideIndex + 1);
+      startHeroCarousel();
+    });
+  }
+
+  heroDots.forEach(function (dot) {
+    dot.addEventListener("click", function () {
+      var target = Number(dot.getAttribute("data-hero-slide"));
+      showHeroSlide(target);
+      startHeroCarousel();
+    });
+  });
+
 });
