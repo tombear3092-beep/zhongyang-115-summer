@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 滾動進場動畫
   var animatedElements = document.querySelectorAll(
-    ".section-heading, .stat-card, .feature-card, .course-card, .program-grid div, .schedule-card, .why-grid article, .line-card, .map-placeholder"
+    ".section-heading, .stat-card, .feature-card, .course-card, .program-grid div, .schedule-card, .why-grid article, .line-card, .map-placeholder, .honor-copy, .honor-card, .elite-intro, .elite-advantage-grid article"
   );
 
   animatedElements.forEach(function (element) {
