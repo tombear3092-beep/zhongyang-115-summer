@@ -10,11 +10,6 @@
 <body>
   <header class="site-header" id="top">
     <div class="container nav-wrap">
-      <a class="brand" href="#hero" aria-label="中央補習班首頁">
-        <span>
-          <strong>中央補習班</strong>
-             </span>
-      </a>
 
       <button class="menu-toggle" aria-label="開啟選單" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -22,7 +17,7 @@
 
       <nav class="main-nav">
         <a href="#highlights">課程亮點</a>
-        <a href="#advantages">資優優勢</a>
+        <a href="#elite">資優優勢</a>
         <a href="#honor">榜單成果</a>
         <a href="#courses">各年級課程</a>
         <a href="#timetable">課表查詢</a>
@@ -50,7 +45,7 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#trial">立即預約試聽</a>
-            <a class="btn btn-secondary" href="#advantages">了解資優優勢</a>
+            <a class="btn btn-secondary" href="#elite">了解資優優勢</a>
           </div>
 
 <div class="hero-meta">
@@ -67,54 +62,45 @@
   </div>
 </div>
         </div>
-
-        <div class="hero-carousel-wrap" aria-label="中央補習班課程與榜單輪播圖">
-          <div class="hero-carousel" id="heroCarousel">
+        <div class="hero-visual hero-carousel-wrap" aria-label="中央補習班課程圖片輪播">
+          <div class="hero-carousel" data-hero-carousel>
             <div class="hero-carousel-track">
-              <article class="hero-slide active">
-                <img src="images/honor-114-rank-1.jpg" alt="中央補習班114上學期校排榮譽榜" loading="eager" />
-                <div class="hero-slide-caption">
-                  <span>榜單成果</span>
-                  <strong>用真實榜單，看見資優培養成果</strong>
-                </div>
-              </article>
+              <figure class="hero-carousel-slide active">
+                <img src="images/hero-summer-camp.png" alt="中央補習班115年夏令營招生中" />
+                <figcaption>
+                  <strong>115 年夏令營招生中</strong>
+                  <span>成功班・建中班課程諮詢開放中</span>
+                </figcaption>
+              </figure>
 
-              <article class="hero-slide">
-                <img src="images/grade-g3.jpg" alt="中央補習班115年升小三課程表" loading="lazy" />
-                <div class="hero-slide-caption">
-                  <span>國小打底</span>
-                  <strong>從國小階段培養數理與語文基礎</strong>
-                </div>
-              </article>
+              <figure class="hero-carousel-slide">
+                <img src="images/grade-g3.jpg" alt="中央補習班升小三課程表" />
+                <figcaption>
+                  <strong>國小資優銜接</strong>
+                  <span>從基礎打底到資優能力養成</span>
+                </figcaption>
+              </figure>
 
-              <article class="hero-slide">
-                <img src="images/junior-g3.jpg" alt="中央補習班115年升國三課程表" loading="lazy" />
-                <div class="hero-slide-caption">
-                  <span>國中升學</span>
-                  <strong>段考、會考與總複習完整銜接</strong>
-                </div>
-              </article>
-
-              <article class="hero-slide">
-                <img src="images/high-school-main.jpg" alt="中央補習班115學年度高中部課表" loading="lazy" />
-                <div class="hero-slide-caption">
-                  <span>高中先修</span>
-                  <strong>提前建立高中數理實戰能力</strong>
-                </div>
-              </article>
+              <figure class="hero-carousel-slide">
+                <img src="images/honor-114-rank-1.jpg" alt="中央補習班114上學期校排榮譽榜" />
+                <figcaption>
+                  <strong>榜單成果看得見</strong>
+                  <span>用真實成果建立升學競爭力</span>
+                </figcaption>
+              </figure>
             </div>
 
-            <button class="hero-carousel-btn prev" type="button" aria-label="上一張輪播圖">‹</button>
-            <button class="hero-carousel-btn next" type="button" aria-label="下一張輪播圖">›</button>
+            <button class="hero-carousel-btn hero-carousel-prev" type="button" aria-label="上一張">‹</button>
+            <button class="hero-carousel-btn hero-carousel-next" type="button" aria-label="下一張">›</button>
 
-            <div class="hero-carousel-dots" aria-label="輪播圖切換">
-              <button class="active" type="button" data-hero-slide="0" aria-label="第 1 張"></button>
-              <button type="button" data-hero-slide="1" aria-label="第 2 張"></button>
-              <button type="button" data-hero-slide="2" aria-label="第 3 張"></button>
-              <button type="button" data-hero-slide="3" aria-label="第 4 張"></button>
+            <div class="hero-carousel-dots" aria-label="輪播切換">
+              <button class="active" type="button" aria-label="第 1 張"></button>
+              <button type="button" aria-label="第 2 張"></button>
+              <button type="button" aria-label="第 3 張"></button>
             </div>
           </div>
         </div>
+      </div>
     </section>
 
    <section class="section trust-section" id="honor">
@@ -185,41 +171,6 @@
         <img src="images/honor-113-final.jpg" alt="中央補習班113年下學期期末榜單">
         <figcaption>113 下學期期末榜單</figcaption>
       </figure>
-    </div>
-  </div>
-</section>
-<section class="section elite-method-section" id="advantages">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">Elite Method</p>
-      <h2>不是短期衝刺，而是有系統的資優培養</h2>
-      <p>中央補習班以資優培養為主軸，從觀念打底、題型訓練、段考追蹤到榜單成果，陪孩子一步步累積真正的升學競爭力。</p>
-    </div>
-
-    <div class="elite-method-grid">
-      <article class="elite-method-card">
-        <span class="method-number">01</span>
-        <h3>資優數學訓練</h3>
-        <p>不只練基本題，更重視解題邏輯、思考深度與高階題型，幫孩子逐步建立資優競爭力。</p>
-      </article>
-
-      <article class="elite-method-card">
-        <span class="method-number">02</span>
-        <h3>段考與校排追蹤</h3>
-        <p>透過段考成果、校排表現與學習狀況追蹤，讓孩子知道自己下一步該補強什麼。</p>
-      </article>
-
-      <article class="elite-method-card">
-        <span class="method-number">03</span>
-        <h3>數理先修銜接</h3>
-        <p>從國中自然、理化到高中數理先修，提前降低升學斷層，讓孩子開學後更有餘裕。</p>
-      </article>
-
-      <article class="elite-method-card">
-        <span class="method-number">04</span>
-        <h3>榜單成果導向</h3>
-        <p>以真實段考、校排與升學成果檢驗學習成效，讓努力不是感覺，而是看得見的結果。</p>
-      </article>
     </div>
   </div>
 </section>
