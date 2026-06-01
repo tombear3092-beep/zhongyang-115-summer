@@ -320,5 +320,17 @@ document.addEventListener("DOMContentLoaded", function () {
     showHeroSlide(0);
     startHeroCarousel();
   }
+  // 手機版：滑下後顯示回到最上面按鈕
+  var backToTop = document.querySelector(".back-to-top");
 
+  if (backToTop) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 500) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+  }
+  
 });
