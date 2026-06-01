@@ -2209,3 +2209,18 @@ textarea:focus {
     display: none;
   }
 }
+/* 放大 Contact 區塊的查看地圖按鈕文字 */
+.map-switch {
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  min-height: 54px;
+}
+
+/* 手機版：放大 Contact 區塊查看地圖按鈕 */
+@media (max-width: 640px) {
+  .map-switch {
+    font-size: 18px;
+    min-height: 56px;
+  }
+}
