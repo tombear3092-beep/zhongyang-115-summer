@@ -2224,3 +2224,13 @@ textarea:focus {
     min-height: 56px;
   }
 }
+
+
+/* 放大榜單分類與課表年級按鈕文字 */
+.honor-filter,
+.tab-btn {
+  font-size: 18px;
+  font-weight: 900;
+  min-height: 52px;
+  padding: 13px 22px;
+}
