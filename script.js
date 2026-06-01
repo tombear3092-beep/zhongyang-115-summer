@@ -208,4 +208,49 @@ document.addEventListener("DOMContentLoaded", function () {
       element.classList.add("show");
     });
   }
+
+  // Contact 區塊：點擊校區按鈕切換 Google Map
+  var campusMap = document.getElementById("campusMap");
+  var campusMapTitle = document.getElementById("campusMapTitle");
+  var campusMapAddress = document.getElementById("campusMapAddress");
+  var mapSwitchButtons = document.querySelectorAll(".map-switch");
+
+  var campusMaps = {
+    jianguo: {
+      title: "中央補習班 建中校地圖",
+      address: "台南市中西區忠義路一段 65 號",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.0113720962286!2d120.20169469999999!3d22.986609299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e767c312c26ff%3A0x32ab3f57aeb53cab!2zNzAw6Ie65Y2X5biC5Lit6KW_5Y2A5Y2X6ZaA6YeM5b-g576p6Lev5LiA5q61NjMtNjXomZ8!5e0!3m2!1szh-TW!2stw!4v1780316583667!5m2!1szh-TW!2stw"
+    },
+    chenggong: {
+      title: "中央補習班 成功校地圖",
+      address: "台南市北區成功路 256 號",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.6628710615223!2d120.20251830000001!3d22.999421400000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e766056d8b3f9%3A0x6ca25815c169c9c1!2zNzA06Ie65Y2X5biC5YyX5Y2A5YyX6I-v6YeM5oiQ5Yqf6LevMjU26Jmf!5e0!3m2!1szh-TW!2stw!4v1780316965321!5m2!1szh-TW!2stw"
+    }
+  };
+
+  mapSwitchButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var mapKey = button.getAttribute("data-map");
+      var selectedMap = campusMaps[mapKey];
+
+      if (!selectedMap || !campusMap) return;
+
+      campusMap.src = selectedMap.src;
+
+      if (campusMapTitle) {
+        campusMapTitle.textContent = selectedMap.title;
+      }
+
+      if (campusMapAddress) {
+        campusMapAddress.textContent = selectedMap.address;
+      }
+
+      mapSwitchButtons.forEach(function (btn) {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+    });
+  };
+
 });
