@@ -165,4 +165,62 @@ document.addEventListener("DOMContentLoaded", function () {
       element.classList.add("show");
     });
   }
+    // 榜單分類切換
+  var honorFilters = document.querySelectorAll(".honor-filter");
+  var honorItems = document.querySelectorAll(".honor-item");
+
+  honorFilters.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var filter = button.getAttribute("data-filter");
+
+      honorFilters.forEach(function (btn) {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      honorItems.forEach(function (item) {
+        var category = item.getAttribute("data-category");
+
+        if (filter === "all" || filter === category) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+
+  // 榜單圖片點擊放大
+  var lightbox = document.createElement("div");
+  lightbox.className = "image-lightbox";
+  lightbox.innerHTML = '<button type="button" aria-label="關閉圖片預覽">×</button><img src="" alt="">';
+  document.body.appendChild(lightbox);
+
+  var lightboxImg = lightbox.querySelector("img");
+  var lightboxClose = lightbox.querySelector("button");
+
+  honorItems.forEach(function (item) {
+    var img = item.querySelector("img");
+
+    if (img) {
+      item.addEventListener("click", function () {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || "榜單圖片預覽";
+        lightbox.classList.add("open");
+      });
+    }
+  });
+
+  lightboxClose.addEventListener("click", function () {
+    lightbox.classList.remove("open");
+    lightboxImg.src = "";
+  });
+
+  lightbox.addEventListener("click", function (event) {
+    if (event.target === lightbox) {
+      lightbox.classList.remove("open");
+      lightboxImg.src = "";
+    }
+  });
 });
