@@ -1940,12 +1940,36 @@ textarea:focus {
   }
 }
 
-/* Hero 右側輪播圖區塊 */
+
+
+/* ===== Final header + hero carousel updates ===== */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 0;
+}
+
+.nav-wrap {
+  height: 76px;
+  justify-content: flex-end;
+}
+
+.main-nav {
+  margin-left: auto;
+}
+
+.hero {
+  padding-top: 92px;
+}
+
 .hero-carousel-wrap {
   position: relative;
-  z-index: 2;
-  width: 100%;
-  min-height: 460px;
+  min-height: 430px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1957,107 +1981,94 @@ textarea:focus {
   border-radius: 34px;
   overflow: hidden;
   background: #fff;
-  border: 1px solid rgba(30, 90, 168, 0.14);
+  border: 1px solid rgba(30, 90, 168, 0.12);
   box-shadow: var(--shadow);
 }
 
 .hero-carousel-track {
   position: relative;
-  min-height: 430px;
+  min-height: 390px;
 }
 
-.hero-slide {
+.hero-carousel-slide {
   position: absolute;
   inset: 0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.45s ease;
+  display: none;
+  margin: 0;
+  background: #fff;
 }
 
-.hero-slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.hero-slide img {
-  width: 100%;
-  height: 430px;
-  object-fit: cover;
-  object-position: top center;
-  background: #f8fafc;
-}
-
-.hero-slide::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 44%;
-  background: linear-gradient(180deg, transparent, rgba(18, 48, 71, 0.78));
-  pointer-events: none;
-}
-
-.hero-slide-caption {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 28px;
-  z-index: 2;
-  color: #fff;
-}
-
-.hero-slide-caption span {
-  display: inline-flex;
-  margin-bottom: 10px;
-  padding: 7px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.20);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  font-size: 14px;
-  font-weight: 900;
-  backdrop-filter: blur(8px);
-}
-
-.hero-slide-caption strong {
+.hero-carousel-slide.active {
   display: block;
-  font-size: clamp(22px, 2.4vw, 32px);
+}
+
+.hero-carousel-slide img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-carousel-slide figcaption {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  color: #fff;
+  background: rgba(18, 48, 71, 0.82);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 34px rgba(18, 48, 71, 0.20);
+}
+
+.hero-carousel-slide figcaption strong,
+.hero-carousel-slide figcaption span {
+  display: block;
+}
+
+.hero-carousel-slide figcaption strong {
+  font-size: 22px;
   line-height: 1.25;
-  letter-spacing: -0.03em;
-  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.hero-carousel-slide figcaption span {
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 800;
 }
 
 .hero-carousel-btn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
   z-index: 3;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
+  transform: translateY(-50%);
   border: 0;
-  border-radius: 50%;
-  color: var(--green);
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 10px 24px rgba(18, 48, 71, 0.16);
-  font-size: 34px;
+  border-radius: 999px;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(18, 48, 71, 0.18);
+  font-size: 32px;
   line-height: 1;
   cursor: pointer;
 }
 
-.hero-carousel-btn.prev {
+.hero-carousel-prev {
   left: 16px;
 }
 
-.hero-carousel-btn.next {
+.hero-carousel-next {
   right: 16px;
 }
 
 .hero-carousel-dots {
   position: absolute;
+  z-index: 4;
   left: 0;
   right: 0;
-  bottom: 14px;
-  z-index: 3;
+  bottom: 12px;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -2068,18 +2079,87 @@ textarea:focus {
   height: 9px;
   padding: 0;
   border: 0;
-  border-radius: 50%;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.55);
   cursor: pointer;
 }
 
 .hero-carousel-dots button.active {
-  width: 26px;
-  border-radius: 999px;
-  background: var(--gold-2);
+  width: 24px;
+  background: #fff;
+}
+
+/* 手機版底部固定 CTA：兩顆按鈕平均滿版 */
+@media (max-width: 640px) {
+  .mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: none;
+    z-index: 999;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 248, 236, 0.96);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+    box-sizing: border-box;
+  }
+
+  .mobile-cta a {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    white-space: nowrap;
+  }
+
+  .mobile-cta a:nth-child(1) {
+    background: linear-gradient(135deg, var(--green), var(--green-2));
+  }
+
+  .mobile-cta a:nth-child(2) {
+    background: linear-gradient(135deg, var(--navy), var(--green));
+  }
+
+  .site-footer {
+    padding-bottom: 96px;
+  }
 }
 
 @media (max-width: 980px) {
+  .site-header {
+    position: absolute;
+    background: transparent;
+    border-bottom: 0;
+  }
+
+  .nav-wrap {
+    height: 76px;
+    justify-content: flex-end;
+  }
+
+  .menu-toggle {
+    margin-left: auto;
+  }
+
+  .hero {
+    padding-top: 92px;
+  }
+
+  .main-nav.open {
+    top: 76px;
+  }
+
   .hero-carousel-wrap {
     min-height: auto;
   }
@@ -2089,41 +2169,43 @@ textarea:focus {
   }
 
   .hero-carousel-track,
-  .hero-slide img {
-    min-height: 380px;
-    height: 380px;
+  .hero-carousel-slide img {
+    min-height: 300px;
+    height: 300px;
   }
 }
 
 @media (max-width: 640px) {
-  .hero-carousel-wrap {
-    margin-top: 28px;
+  .nav-wrap {
+    height: 70px;
   }
 
-  .hero-carousel {
-    border-radius: 24px;
+  .hero {
+    padding-top: 88px;
+  }
+
+  .main-nav.open {
+    top: 70px;
   }
 
   .hero-carousel-track,
-  .hero-slide img {
-    min-height: 300px;
-    height: 300px;
+  .hero-carousel-slide img {
+    min-height: 250px;
+    height: 250px;
   }
 
-  .hero-slide-caption {
-    left: 18px;
-    right: 18px;
-    bottom: 26px;
+  .hero-carousel-slide figcaption {
+    left: 14px;
+    right: 14px;
+    bottom: 18px;
+    padding: 13px 14px;
   }
 
-  .hero-slide-caption strong {
-    font-size: 22px;
+  .hero-carousel-slide figcaption strong {
+    font-size: 18px;
   }
 
   .hero-carousel-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 28px;
+    display: none;
   }
 }
-
