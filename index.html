@@ -421,7 +421,7 @@
           <h2>免費試聽／課程諮詢</h2>
           <p>留下孩子目前年級與想加強的科目，我們協助建議適合班別與暑期規劃。</p>
 
-          <form class="lead-form">
+            <form class="lead-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfPm5EwuF2RQZ6oyccks0kMqPN9MNUncCKTYCbqN2rmeC1Iag/viewform?usp=header" method="POST" target="hidden_iframe" id="leadForm">
             <label>
               學生姓名
               <input type="text" name="student" placeholder="請輸入學生姓名" />
@@ -451,7 +451,11 @@
               <textarea name="message" rows="4" placeholder="請簡單描述孩子需求"></textarea>
             </label>
             <button type="submit" class="btn btn-primary">送出諮詢</button>
-          </form>
+
+            <p class="form-success-message" id="formSuccessMessage">
+              家長您好，已收到您的表單，我們會有專人與您聯繫。
+            </p>
+            </form>
         </div>
 
         <aside class="line-card">
