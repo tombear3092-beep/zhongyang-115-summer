@@ -2274,3 +2274,27 @@ textarea:focus {
   color: var(--green-2);
   font-weight: 900;
 }
+/* 放大電腦版與手機版導覽列文字 */
+.main-nav {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.main-nav a {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.nav-cta {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* 手機版選單展開後的文字 */
+@media (max-width: 980px) {
+  .main-nav.open a {
+    font-size: 21px;
+    font-weight: 900;
+    text-align: center;
+  }
+}
