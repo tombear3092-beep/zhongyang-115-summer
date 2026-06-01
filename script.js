@@ -165,14 +165,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 表單送出提示
-  var form = document.querySelector(".lead-form");
+  // Google 表單送出後顯示成功訊息
+  var leadForm = document.getElementById("leadForm");
+  var formSuccessMessage = document.getElementById("formSuccessMessage");
 
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      alert("已收到您的諮詢資料。正式上線時可串接 Google Form、Tally 或 LINE。");
-      form.reset();
+  if (leadForm && formSuccessMessage) {
+    leadForm.addEventListener("submit", function () {
+      setTimeout(function () {
+        formSuccessMessage.classList.add("show");
+        leadForm.reset();
+      }, 800);
     });
   }
 
