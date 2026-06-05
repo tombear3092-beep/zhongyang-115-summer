@@ -390,5 +390,63 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-  
+  // 熱門課程：點擊按鈕彈出課程圖片
+var programButtons = document.querySelectorAll(".program-popup-btn");
+var programModal = document.getElementById("programModal");
+var programModalImage = document.getElementById("programModalImage");
+var programModalTitle = document.getElementById("programModalTitle");
+var programModalClose = document.querySelector(".program-modal-close");
+
+function openProgramModal(imageSrc, title) {
+  if (!programModal || !programModalImage) return;
+
+  programModalImage.setAttribute("src", imageSrc);
+  programModalImage.setAttribute("alt", title || "課程時間表");
+
+  if (programModalTitle) {
+    programModalTitle.textContent = title || "課程時間表";
+  }
+
+  programModal.classList.add("open");
+  programModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeProgramModal() {
+  if (!programModal || !programModalImage) return;
+
+  programModal.classList.remove("open");
+  programModal.setAttribute("aria-hidden", "true");
+  programModalImage.removeAttribute("src");
+  document.body.style.overflow = "";
+}
+
+programButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    var imageSrc = button.getAttribute("data-program-img");
+    var title = button.getAttribute("data-program-title") || button.textContent.trim();
+
+    if (!imageSrc) return;
+
+    openProgramModal(imageSrc, title);
+  });
+});
+
+if (programModalClose) {
+  programModalClose.addEventListener("click", closeProgramModal);
+}
+
+if (programModal) {
+  programModal.addEventListener("click", function (event) {
+    if (event.target === programModal) {
+      closeProgramModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && programModal && programModal.classList.contains("open")) {
+    closeProgramModal();
+  }
+});
 });
