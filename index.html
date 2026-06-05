@@ -380,20 +380,52 @@
           <p>不只是暑假安親，而是讓孩子在暑假建立下學期需要的學習能力。</p>
         </div>
 
-        <div class="program-grid">
-          <div>自然實驗實作</div>
-          <div>小五數學密集班</div>
-          <div>小六數學密集班</div>
-          <div>圖解數學</div>
-          <div>幾何學</div>
-          <div>國中作文營</div>
-          <div>國小作文營</div>
-          <div>英聽及單字精進班</div>
-          <div>全科輔班</div>
-        </div>
+       <div class="program-grid">
+  <button class="program-popup-btn" type="button" data-program-img="images/program-science-experiment.png" data-program-title="自然實驗實作">
+    自然實驗實作
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-grade5-math-intensive.png" data-program-title="小五數學密集班">
+    小五數學密集班
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-grade6-math-intensive.png" data-program-title="小六數學密集班">
+    小六數學密集班
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-graphic-math.png" data-program-title="圖解數學">
+    圖解數學
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-geometry.png" data-program-title="幾何學">
+    幾何學
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-junior-writing.png" data-program-title="國中作文營">
+    國中作文營
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-elementary-writing.png" data-program-title="國小作文營">
+    國小作文營
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-english-listening-vocab.png" data-program-title="英聽及單字精進班">
+    英聽及單字精進班
+  </button>
+
+  <button class="program-popup-btn" type="button" data-program-img="images/program-all-subjects-care.png" data-program-title="全科輔班">
+    全科輔班
+  </button>
+</div>
       </div>
     </section>
-
+<div class="program-modal" id="programModal" aria-hidden="true">
+  <div class="program-modal-content" role="dialog" aria-modal="true" aria-label="課程時間表">
+    <button class="program-modal-close" type="button" aria-label="關閉課程時間表">×</button>
+    <h3 id="programModalTitle">課程時間表</h3>
+    <img id="programModalImage" src="" alt="課程時間表">
+  </div>
+</div>
     <section class="section timetable-section" id="timetable">
       <div class="container">
         <div class="section-heading">
