@@ -384,30 +384,38 @@
 
         <div class="tabs" role="tablist" aria-label="各年級課表">
           <button class="tab-btn active" data-tab="g3" type="button">升小三</button>
+          <button class="tab-btn" data-tab="g4" type="button">升小四</button>
           <button class="tab-btn" data-tab="g5" type="button">升小五</button>
           <button class="tab-btn" data-tab="g6" type="button">升小六</button>
           <button class="tab-btn" data-tab="j1" type="button">升國一</button>
+          <button class="tab-btn" data-tab="j2" type="button">升國二</button>
           <button class="tab-btn" data-tab="j3" type="button">升國三</button>
           <button class="tab-btn" data-tab="high" type="button">高中部</button>
           <button class="tab-btn" data-tab="camp" type="button">夏令營</button>
         </div>
 
-<div class="tab-panels timetable-image-panels">
-  <div class="tab-panel active" id="g3">
-    <article class="timetable-image-card">
-      <img src="images/grade-g3.jpg" alt="中央補習班115年升小三課程">
+        <div class="tab-panels timetable-image-panels">
+          <div class="tab-panel active" id="g3">
+            <article class="timetable-image-card">
+              <div class="timetable-card-copy">
+                <h3>升小三｜資優數學與基礎能力</h3>
+                <p>可先提供孩子目前程度與想加強科目，老師會協助安排適合課程。</p>
+                <a href="#trial">詢問升小三班級名額</a>
+              </div>
+              <img src="images/grade-g3.jpg" alt="中央補習班115年升小三課程表" loading="lazy" />
+            </article>
+          </div>
 
-      <div class="timetable-cta">
-        <h3>想了解升小三班級名額？</h3>
-        <p>可先提供孩子目前程度與想加強科目，老師會協助安排適合課程。</p>
-
-        <div class="timetable-actions">
-          <a class="btn btn-primary" href="#trial">預約免費試聽</a>
-          <a class="btn btn-secondary" href="你的LINE官方帳號連結" target="_blank" rel="noopener">加 LINE 詢問</a>
-        </div>
-      </div>
-    </article>
-  </div>
+          <div class="tab-panel" id="g4">
+            <article class="timetable-image-card">
+              <div class="timetable-card-copy">
+                <h3>升小四｜資優數學、國語與自然基礎</h3>
+                <p>打好數學邏輯、國語閱讀表達與進階自然觀念，提前銜接高年級資優培訓。</p>
+                <a href="#trial">詢問升小四班級名額</a>
+              </div>
+              <img src="images/admission-115-grade4.png" alt="中央補習班115年升小四資優培訓班課表" loading="lazy" />
+            </article>
+          </div>
 
           <div class="tab-panel" id="g5">
             <article class="timetable-image-card">
@@ -439,6 +447,17 @@
                 <a href="#trial">詢問升國一班級名額</a>
               </div>
               <img src="images/junior-g1.jpg" alt="中央補習班115年升國一先修課程表" loading="lazy" />
+            </article>
+          </div>
+
+          <div class="tab-panel" id="j2">
+            <article class="timetable-image-card">
+              <div class="timetable-card-copy">
+                <h3>升國二｜數學分級、理化強化與段考複習</h3>
+                <p>國二理化正式加重，搭配資優數學、英文、國文與段考複習，協助學生穩定銜接。</p>
+                <a href="#trial">詢問升國二班級名額</a>
+              </div>
+              <img src="images/carousel-grade8-bridge.png" alt="中央補習班升國二開課課程表" loading="lazy" />
             </article>
           </div>
 
@@ -523,37 +542,40 @@
           <form
             class="lead-form"
             id="leadForm"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSfPm5EwuF2RQZ6oyccks0kMqPN9MNUncCKTYCbqN2rmeC1Iag/formResponse"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSf16UvHZSIYLqrgTjP1lakNSPLDHOIqWB9eHZ1reZeFz7foIQ/formResponse"
             method="POST"
             target="hidden_iframe"
           >
             <label>
               學生姓名
-              <input type="text" name="entry.505338752" placeholder="請輸入學生姓名" required />
+              <input type="text" name="entry.42860166" placeholder="請輸入學生姓名" required />
             </label>
             <label>
               家長電話
-              <input type="tel" name="entry.821736483" placeholder="請輸入聯絡電話" required />
+              <input type="tel" name="entry.270810220" placeholder="請輸入聯絡電話" required />
             </label>
             <label>
               目前年級
-              <select name="entry.1892098007" required>
+              <select name="entry.1718699572" required>
                 <option value="">請選擇年級</option>
                 <option value="升小三">升小三</option>
+                <option value="升小四">升小四</option>
                 <option value="升小五">升小五</option>
                 <option value="升小六">升小六</option>
                 <option value="升國一">升國一</option>
+                <option value="升國二">升國二</option>
                 <option value="升國三">升國三</option>
                 <option value="升高一／高中部">升高一／高中部</option>
+                <option value="夏令營">夏令營</option>
               </select>
             </label>
             <label>
               想加強科目
-              <input type="text" name="entry.455717977" placeholder="例：數學、英文、自然、作文" />
+              <input type="text" name="entry.2071723135" placeholder="例：數學、英文、自然、作文" />
             </label>
             <label>
               想了解的課程
-              <textarea name="entry.958279728" rows="4" placeholder="請簡單描述孩子需求"></textarea>
+              <textarea name="entry.313125032" rows="4" placeholder="請簡單描述孩子需求"></textarea>
             </label>
             <button type="submit" class="btn btn-primary">送出諮詢</button>
 
