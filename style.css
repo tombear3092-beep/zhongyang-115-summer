@@ -2760,3 +2760,68 @@ textarea:focus {
     right: 10px;
   }
 }
+/* ===== 修正手機版首頁 3:4 輪播上下空白過多 ===== */
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 72px;
+  }
+
+  .hero-grid {
+    gap: 18px;
+  }
+
+  .hero-carousel-wrap.hero-carousel-large {
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .hero-carousel-large .hero-carousel {
+    width: min(100%, 390px);
+    aspect-ratio: 3 / 4;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .hero-carousel-large .hero-carousel-track,
+  .hero-carousel-large .hero-carousel-slide,
+  .hero-carousel-large .hero-carousel-slide a {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: block;
+    border-radius: inherit;
+    overflow: hidden;
+  }
+
+  .hero-carousel-large .hero-carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: inherit;
+    background: #fff;
+  }
+
+  .hero-carousel-large .hero-carousel-btn {
+    display: flex !important;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+  }
+
+  .hero-carousel-large .hero-carousel-prev {
+    left: 8px;
+  }
+
+  .hero-carousel-large .hero-carousel-next {
+    right: 8px;
+  }
+
+  .hero-carousel-large .hero-carousel-dots {
+    bottom: 8px;
+  }
+}
