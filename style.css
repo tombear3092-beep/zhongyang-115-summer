@@ -2848,3 +2848,22 @@ textarea:focus {
     bottom: 8px;
   }
 }
+/* 黃色底線重點字 */
+.underline-yellow {
+  position: relative;
+  z-index: 1;
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.underline-yellow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.08em;
+  height: 0.32em;
+  background: rgba(255, 209, 102, 0.85);
+  border-radius: 999px;
+  z-index: -1;
+}
