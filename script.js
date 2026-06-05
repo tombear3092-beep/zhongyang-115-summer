@@ -83,31 +83,89 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(nextSlide, 4500);
   }
 
-  // 榜單分類切換
+  // 榜單分類切換 + 預設收合：每一類先顯示 1 張
   var honorFilters = document.querySelectorAll(".honor-filter");
   var honorItems = document.querySelectorAll(".honor-item");
+  var honorMoreBtn = document.getElementById("honorMoreBtn");
+  var currentHonorFilter = "all";
+  var honorExpanded = false;
+
+  var honorMoreLabels = {
+    all: "完整榜單",
+    rank: "完整校排榜單",
+    exam: "完整段考榜單",
+    competition: "完整競賽成績",
+    admission: "完整升學榜單"
+  };
+
+  function updateHonorGallery() {
+    var visibleCounters = {
+      rank: 0,
+      exam: 0,
+      competition: 0,
+      admission: 0
+    };
+
+    var totalMatched = 0;
+    var totalHiddenByCollapse = 0;
+
+    honorItems.forEach(function (item) {
+      var category = item.getAttribute("data-category");
+      var matchCurrentFilter = currentHonorFilter === "all" || category === currentHonorFilter;
+
+      item.classList.remove("is-hidden-by-collapse");
+      item.style.display = "none";
+
+      if (!matchCurrentFilter) return;
+
+      totalMatched += 1;
+
+      if (honorExpanded) {
+        item.style.display = "";
+        return;
+      }
+
+      if (visibleCounters[category] === 0) {
+        item.style.display = "";
+      } else {
+        item.classList.add("is-hidden-by-collapse");
+        totalHiddenByCollapse += 1;
+      }
+
+      visibleCounters[category] += 1;
+    });
+
+    if (honorMoreBtn) {
+      honorMoreBtn.textContent = honorExpanded
+        ? "收合榜單"
+        : "查看" + (honorMoreLabels[currentHonorFilter] || "完整榜單");
+
+      honorMoreBtn.style.display = totalMatched > 1 && totalHiddenByCollapse > 0 || honorExpanded ? "inline-flex" : "none";
+    }
+  }
 
   honorFilters.forEach(function (button) {
     button.addEventListener("click", function () {
-      var filter = button.getAttribute("data-filter");
+      currentHonorFilter = button.getAttribute("data-filter") || "all";
+      honorExpanded = false;
 
       honorFilters.forEach(function (btn) {
         btn.classList.remove("active");
       });
 
       button.classList.add("active");
-
-      honorItems.forEach(function (item) {
-        var category = item.getAttribute("data-category");
-
-        if (filter === "all" || filter === category) {
-          item.style.display = "";
-        } else {
-          item.style.display = "none";
-        }
-      });
+      updateHonorGallery();
     });
   });
+
+  if (honorMoreBtn) {
+    honorMoreBtn.addEventListener("click", function () {
+      honorExpanded = !honorExpanded;
+      updateHonorGallery();
+    });
+  }
+
+  updateHonorGallery();
 
   // 圖片點擊放大：榜單圖片 + 課表圖片共用同一個 lightbox
   var previewImages = document.querySelectorAll(
