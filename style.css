@@ -2760,7 +2760,7 @@ textarea:focus {
     right: 10px;
   }
 }
-/* ===== 修正手機版首頁 3:4 輪播上下空白過多 ===== */
+/* ===== 修正手機版首頁 3:4 輪播上下空白過多，並保留 5 張輪播切換 ===== */
 @media (max-width: 640px) {
   .hero {
     padding-top: 72px;
@@ -2786,13 +2786,36 @@ textarea:focus {
     background: #fff;
   }
 
-  .hero-carousel-large .hero-carousel-track,
-  .hero-carousel-large .hero-carousel-slide,
-  .hero-carousel-large .hero-carousel-slide a {
+  .hero-carousel-large .hero-carousel-track {
+    position: relative;
     width: 100%;
     height: 100%;
     min-height: 0;
+    border-radius: inherit;
+    overflow: hidden;
+  }
+
+  .hero-carousel-large .hero-carousel-slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    margin: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .hero-carousel-large .hero-carousel-slide.active {
     display: block;
+  }
+
+  .hero-carousel-large .hero-carousel-slide a {
+    display: block;
+    width: 100%;
+    height: 100%;
     border-radius: inherit;
     overflow: hidden;
   }
