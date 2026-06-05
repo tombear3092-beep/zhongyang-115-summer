@@ -2915,3 +2915,119 @@ textarea:focus {
     font-size: 18px;
   }
 }
+/* ===== 課程亮點：圖片背景卡片效果 ===== */
+.feature-image-grid {
+  gap: 22px;
+}
+
+.feature-image-card {
+  position: relative;
+  min-height: 320px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  background-size: cover;
+  background-position: center;
+  border: 0;
+  box-shadow: 0 18px 44px rgba(18, 48, 71, 0.14);
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+}
+
+.feature-image-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 0.45s ease;
+  z-index: 0;
+}
+
+.feature-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(18, 48, 71, 0.18), rgba(18, 48, 71, 0.78)),
+    rgba(18, 48, 71, 0.28);
+  transition: background 0.35s ease;
+}
+
+.feature-image-content {
+  position: relative;
+  z-index: 2;
+  min-height: 320px;
+  padding: 44px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+.feature-image-card .icon {
+  width: fit-content;
+  margin-bottom: 18px;
+  color: var(--navy);
+  background: rgba(255, 248, 236, 0.94);
+}
+
+.feature-image-card h3 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 1.25;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+
+.feature-image-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 800;
+  line-height: 1.8;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.26);
+}
+
+.feature-image-card:hover {
+  transform: scale(1.025);
+  z-index: 3;
+  box-shadow: 0 28px 70px rgba(18, 48, 71, 0.28);
+}
+
+.feature-image-card:hover::before {
+  transform: scale(1.08);
+}
+
+.feature-image-card:hover .feature-image-overlay {
+  background:
+    linear-gradient(180deg, rgba(18, 48, 71, 0.08), rgba(18, 48, 71, 0.72)),
+    rgba(30, 90, 168, 0.18);
+}
+
+/* 手機版：三張直向排列 */
+@media (max-width: 640px) {
+  .feature-image-grid {
+    gap: 18px;
+  }
+
+  .feature-image-card {
+    min-height: 260px;
+    border-radius: 24px;
+  }
+
+  .feature-image-content {
+    min-height: 260px;
+    padding: 34px 24px;
+  }
+
+  .feature-image-card h3 {
+    font-size: 26px;
+  }
+
+  .feature-image-card:hover {
+    transform: scale(1.015);
+  }
+}
