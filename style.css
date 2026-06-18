@@ -2951,10 +2951,11 @@ textarea:focus {
 
 .honor-opening-copy {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, 0.52fr);
+  gap: 28px;
   min-height: 360px;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding: 52px 48px;
   border-radius: 30px;
   color: var(--navy);
@@ -2964,6 +2965,11 @@ textarea:focus {
   border: 1px solid rgba(30, 90, 168, 0.14);
   box-shadow: 0 18px 48px rgba(16, 42, 67, 0.08);
   overflow: hidden;
+}
+
+.honor-copy-text {
+  position: relative;
+  z-index: 1;
 }
 
 .honor-opening-copy::before {
@@ -2982,6 +2988,21 @@ textarea:focus {
     radial-gradient(circle, rgba(255, 209, 102, 0.16) 0 42%, rgba(255, 209, 102, 0) 43%),
     radial-gradient(circle, rgba(47, 128, 237, 0.10) 0 68%, rgba(47, 128, 237, 0) 69%);
   opacity: 0.72;
+}
+
+.honor-student-visual {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  margin: 0;
+}
+
+.honor-student-visual img {
+  width: min(100%, 260px);
+  height: auto;
+  margin-left: auto;
+  border-radius: 28px;
+  box-shadow: 0 18px 42px rgba(16, 42, 67, 0.12);
 }
 
 .honor-opening-copy .eyebrow {
@@ -3111,6 +3132,8 @@ textarea:focus {
   }
 
   .honor-opening-copy {
+    grid-template-columns: 1fr;
+    gap: 22px;
     padding: 32px 24px;
     border-radius: 24px;
   }
@@ -3131,6 +3154,17 @@ textarea:focus {
     margin-top: 16px;
     padding: 8px 14px;
     font-size: 15px;
+  }
+
+  .honor-student-visual {
+    align-self: center;
+    width: 100%;
+  }
+
+  .honor-student-visual img {
+    width: min(100%, 248px);
+    margin: 0 auto;
+    border-radius: 24px;
   }
 
   .honor-opening-copy p:not(.eyebrow) {
