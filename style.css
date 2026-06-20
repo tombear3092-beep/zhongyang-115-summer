@@ -2994,15 +2994,20 @@ textarea:focus {
   position: relative;
   z-index: 1;
   align-self: center;
+  width: min(100%, 300px);
+  aspect-ratio: 1 / 1;
   margin: 0;
+  overflow: hidden;
+  border-radius: 28px;
+  box-shadow: 0 18px 42px rgba(16, 42, 67, 0.12);
+  background: #fff;
 }
 
 .honor-student-visual img {
-  width: min(100%, 300px);
-  height: auto;
-  margin-left: auto;
-  border-radius: 28px;
-  box-shadow: 0 18px 42px rgba(16, 42, 67, 0.12);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
 }
 
 .honor-opening-copy .eyebrow {
@@ -3122,13 +3127,14 @@ textarea:focus {
   .honor-student-visual {
     align-self: start;
     width: 100%;
+    aspect-ratio: 1.18 / 1;
     margin-top: -4px;
+    border-radius: 24px;
   }
 
   .honor-student-visual img {
-    width: min(100%, 278px);
-    margin: 0 auto;
-    border-radius: 24px;
+    object-fit: cover;
+    object-position: center 40%;
   }
 
   .honor-proof-panel {
