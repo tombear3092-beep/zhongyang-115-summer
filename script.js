@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var honorFilters = document.querySelectorAll(".honor-filter");
   var honorItems = document.querySelectorAll(".honor-item");
   var honorMoreBtn = document.getElementById("honorMoreBtn");
-  var currentHonorFilter = "all";
+  var currentHonorFilter = "rank";
   var honorExpanded = false;
 
   var honorMoreLabels = {
