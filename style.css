@@ -3846,3 +3846,20 @@ textarea:focus {
     opacity: 0.95;
   }
 }
+/* ===== Add back honor seal on desktop ===== */
+@media (min-width: 981px) {
+  .honor-opening-copy::after {
+    content: "";
+    position: absolute;
+    top: 28px;
+    right: 58px;
+    z-index: 4;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: url("images/honor-congrats-seal.png") center / contain no-repeat;
+    filter: drop-shadow(0 12px 22px rgba(126, 84, 15, 0.22));
+    opacity: 0.96;
+    pointer-events: none;
+  }
+}
