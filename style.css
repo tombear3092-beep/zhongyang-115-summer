@@ -2920,6 +2920,7 @@ textarea:focus {
 #honor.honor-section {
   position: relative;
   overflow: hidden;
+  padding: 28px 0 64px;
   background:
     linear-gradient(180deg, #ffffff 0%, #f6fbff 48%, #fff8ec 100%);
 }
@@ -3115,9 +3116,17 @@ textarea:focus {
 }
 
 @media (max-width: 640px) {
+  #honor.honor-section {
+    padding: 4px 0 38px;
+  }
+
+  #honor .container {
+    width: calc(100% - 8px);
+  }
+
   .honor-opening {
-    gap: 18px;
-    margin-bottom: 24px;
+    gap: 8px;
+    margin-bottom: 12px;
   }
 
   .honor-opening-copy {
