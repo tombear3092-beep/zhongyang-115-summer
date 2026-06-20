@@ -3500,8 +3500,8 @@ textarea:focus {
     z-index: 1;
     width: calc(100% + 32px);
     height: auto;
-    aspect-ratio: 1.38 / 1;
-    margin: -2px -16px 0;
+    aspect-ratio: 1.08 / 1;
+    margin: -18px -16px 0;
     border-radius: 20px;
     filter: drop-shadow(0 14px 24px rgba(16, 42, 67, 0.10));
     opacity: 1;
@@ -3509,7 +3509,7 @@ textarea:focus {
 
   .honor-student-visual img {
     object-fit: cover;
-    object-position: center 54%;
+    object-position: center top;
   }
 
   .honor-proof-panel {
