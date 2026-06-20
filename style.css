@@ -3026,10 +3026,13 @@ textarea:focus {
   position: relative;
   z-index: 1;
   width: fit-content;
-  padding: 7px 12px;
+  padding: 8px 16px;
   border-radius: 999px;
-  color: var(--green);
-  background: rgba(30, 90, 168, 0.08);
+  color: #ffd166;
+  background: linear-gradient(145deg, #173f63, #0d2f4d);
+  box-shadow:
+    0 10px 22px rgba(16, 42, 67, 0.12),
+    inset 0 0 0 1px rgba(255, 209, 102, 0.38);
 }
 
 .honor-title {
