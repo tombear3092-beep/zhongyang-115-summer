@@ -3800,3 +3800,181 @@ textarea:focus {
     height: 40px;
   }
 }
+/* ===== Desktop only: honor section layout fix ===== */
+@media (min-width: 981px) {
+  .honor-opening-copy {
+    grid-template-columns: 1fr;
+    min-height: 360px;
+    padding: 52px 48px;
+    overflow: hidden;
+  }
+
+  .honor-copy-text {
+    position: relative;
+    z-index: 3;
+    max-width: 560px;
+  }
+
+  .honor-title {
+    max-width: 560px;
+  }
+
+  .honor-student-visual {
+    position: absolute;
+    right: 24px;
+    bottom: 10px;
+    z-index: 1;
+    width: 360px;
+    max-width: 48%;
+    aspect-ratio: auto;
+    margin: 0;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  .honor-student-visual img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center bottom;
+    background: transparent;
+    filter: drop-shadow(0 16px 26px rgba(18, 48, 71, 0.16));
+  }
+
+  .honor-opening-copy::after {
+    top: 26px;
+    right: 56px;
+    width: 86px;
+    height: 86px;
+    z-index: 2;
+    opacity: 0.95;
+  }
+}
+/* ===== Final desktop fix: honor image behind text ===== */
+@media (min-width: 981px) {
+  .honor-opening-copy {
+    position: relative;
+    grid-template-columns: 1fr;
+    min-height: 360px;
+    padding: 52px 48px;
+    overflow: hidden;
+  }
+
+  /* 學生圖：用背景圖方式放到文字後面，避免消失或壓版 */
+  .honor-opening-copy::before {
+    content: "";
+    position: absolute;
+    right: 18px;
+    bottom: 0;
+    z-index: 1;
+    width: 380px;
+    height: 380px;
+    background: url("images/honor-student-achievement0621.png") center bottom / contain no-repeat;
+    pointer-events: none;
+    filter: drop-shadow(0 16px 26px rgba(18, 48, 71, 0.16));
+  }
+
+  /* 原本的學生 figure 在電腦版隱藏，避免重複或跑版 */
+  .honor-student-visual {
+    display: none;
+  }
+
+  .honor-copy-text {
+    position: relative;
+    z-index: 3;
+    max-width: 560px;
+  }
+
+  .honor-title {
+    max-width: 560px;
+  }
+
+  /* 右上角「賀」縮小 */
+  .honor-opening-copy::after {
+    top: 24px;
+    right: 58px;
+    width: 82px;
+    height: 82px;
+    z-index: 2;
+    opacity: 0.95;
+  }
+}
+/* ===== Add back honor seal on desktop ===== */
+@media (min-width: 981px) {
+  .honor-opening-copy::after {
+    content: "";
+    position: absolute;
+    top: 28px;
+    right: 58px;
+    z-index: 4;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: url("images/honor-congrats-seal.png") center / contain no-repeat;
+    filter: drop-shadow(0 12px 22px rgba(126, 84, 15, 0.22));
+    opacity: 0.96;
+    pointer-events: none;
+  }
+}
+/* ===== FINAL honor desktop visual: student + seal together ===== */
+@media (min-width: 981px) {
+  .honor-opening-copy {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: 420px !important;
+    padding: 52px 48px !important;
+    overflow: hidden !important;
+  }
+
+  /* 學生圖：放在文字後面 */
+  .honor-opening-copy::before {
+    content: "" !important;
+    position: absolute !important;
+    right: 22px !important;
+    bottom: 0 !important;
+    z-index: 1 !important;
+    width: 390px !important;
+    height: 390px !important;
+    background: url("images/honor-student-achievement0621.png") center bottom / contain no-repeat !important;
+    filter: drop-shadow(0 16px 26px rgba(18, 48, 71, 0.16)) !important;
+    pointer-events: none !important;
+  }
+
+  /* 賀字章：右上角 */
+  .honor-opening-copy::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 28px !important;
+    right: 62px !important;
+    z-index: 2 !important;
+    width: 92px !important;
+    height: 92px !important;
+    border-radius: 50% !important;
+    background: url("images/honor-congrats-seal.png") center / contain no-repeat !important;
+    filter: drop-shadow(0 12px 22px rgba(126, 84, 15, 0.22)) !important;
+    opacity: 0.96 !important;
+    pointer-events: none !important;
+  }
+
+  /* 原本的 img 區塊在電腦版隱藏，避免重複跑版 */
+  .honor-student-visual {
+    display: none !important;
+  }
+
+  /* 文字放最前面 */
+  .honor-copy-text {
+    position: relative !important;
+    z-index: 3 !important;
+    max-width: 560px !important;
+  }
+
+  .honor-title {
+    position: relative !important;
+    z-index: 3 !important;
+    max-width: 560px !important;
+  }
+}
