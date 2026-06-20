@@ -3043,7 +3043,7 @@ textarea:focus {
   font-size: clamp(34px, 4vw, 48px);
   line-height: 1.18;
   color: var(--navy);
-  letter-spacing: 0;
+  letter-spacing: 1pt;
 }
 
 .honor-title span {
