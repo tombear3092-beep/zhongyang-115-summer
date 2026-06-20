@@ -3237,12 +3237,13 @@ textarea:focus {
 #honor .container {
   position: relative;
   z-index: 1;
+  width: min(1180px, calc(100% - 40px));
 }
 
 .honor-opening {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-  gap: 34px;
+  grid-template-columns: 1fr;
+  gap: 24px;
   align-items: stretch;
   margin-bottom: 34px;
 }
@@ -3250,11 +3251,11 @@ textarea:focus {
 .honor-opening-copy {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(190px, 0.52fr);
-  gap: 28px;
-  min-height: 360px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  min-height: clamp(430px, 42vw, 560px);
   align-items: center;
-  padding: 52px 48px;
+  padding: clamp(54px, 5vw, 78px) clamp(36px, 4vw, 58px);
   border-radius: 30px;
   color: var(--navy);
   background:
@@ -3267,63 +3268,83 @@ textarea:focus {
 
 .honor-copy-text {
   position: relative;
-  z-index: 1;
+  z-index: 3;
+  max-width: min(58%, 690px);
 }
 
 .honor-opening-copy::before {
-  content: none;
+  content: "";
+  position: absolute;
+  top: 7%;
+  right: 5%;
+  z-index: 0;
+  width: min(50%, 560px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(210, 228, 252, 0.72) 0 58%, rgba(210, 228, 252, 0.24) 59% 72%, transparent 73%),
+    radial-gradient(circle at 50% 50%, transparent 0 66%, rgba(121, 174, 232, 0.26) 67% 68%, transparent 69%);
+  opacity: 0.95;
 }
 
 .honor-opening-copy::after {
   content: "";
   position: absolute;
-  top: 34px;
-  right: 34px;
-  width: 138px;
-  height: 138px;
+  top: 18px;
+  right: 28px;
+  z-index: 4;
+  width: clamp(68px, 6vw, 92px);
+  height: clamp(68px, 6vw, 92px);
   border-radius: 50%;
   background: url("images/honor-congrats-seal.png") center / contain no-repeat;
-  filter: drop-shadow(0 14px 24px rgba(126, 84, 15, 0.20));
+  filter: drop-shadow(0 10px 18px rgba(126, 84, 15, 0.18));
 }
 
 .honor-student-visual {
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  right: clamp(26px, 5vw, 78px);
+  bottom: -2px;
+  z-index: 2;
   align-self: center;
-  width: min(100%, 340px);
-  aspect-ratio: 1 / 1;
+  width: min(51%, 560px);
+  height: 94%;
   margin: 0;
-  overflow: hidden;
-  border-radius: 28px;
-  box-shadow: 0 18px 42px rgba(16, 42, 67, 0.12);
-  background: #fff;
+  overflow: visible;
+  border-radius: 0;
+  filter: drop-shadow(0 18px 34px rgba(16, 42, 67, 0.10));
+  opacity: 1;
+  pointer-events: none;
 }
 
 .honor-student-visual img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .honor-opening-copy .eyebrow {
   position: relative;
   z-index: 1;
   width: fit-content;
-  padding: 8px 16px;
+  min-width: clamp(220px, 22vw, 292px);
+  padding: 16px 30px;
   border-radius: 999px;
   color: #ffd166;
   background: linear-gradient(145deg, #173f63, #0d2f4d);
   box-shadow:
     0 10px 22px rgba(16, 42, 67, 0.12),
     inset 0 0 0 1px rgba(255, 209, 102, 0.38);
+  font-size: clamp(18px, 1.8vw, 24px);
+  letter-spacing: 0.14em;
+  text-align: center;
 }
 
 .honor-title {
   position: relative;
   z-index: 1;
   margin: 22px 0 0;
-  font-size: clamp(34px, 4vw, 48px);
+  font-size: clamp(42px, 4.7vw, 70px);
   line-height: 1.18;
   color: var(--navy);
   letter-spacing: 1pt;
@@ -3355,7 +3376,7 @@ textarea:focus {
 
 .honor-proof-panel {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   padding: 22px;
   border-radius: 28px;
@@ -3367,7 +3388,7 @@ textarea:focus {
 
 .honor-proof-card {
   display: flex;
-  min-height: 146px;
+  min-height: 126px;
   flex-direction: column;
   justify-content: space-between;
   padding: 22px;
@@ -3414,6 +3435,23 @@ textarea:focus {
 
   .honor-opening-copy {
     min-height: auto;
+    padding-right: clamp(30px, 7vw, 48px);
+  }
+
+  .honor-copy-text {
+    max-width: min(62%, 620px);
+  }
+
+  .honor-student-visual {
+    right: -8px;
+    bottom: -24px;
+    width: min(45%, 330px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .honor-proof-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -3438,11 +3476,18 @@ textarea:focus {
     border-radius: 24px;
   }
 
+  .honor-opening-copy .eyebrow {
+    min-width: auto;
+    padding: 8px 16px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
   .honor-opening-copy::after {
     top: 18px;
     right: 18px;
-    width: 116px;
-    height: 116px;
+    width: 82px;
+    height: 82px;
     filter: drop-shadow(0 10px 18px rgba(126, 84, 15, 0.18));
   }
 
@@ -3450,12 +3495,23 @@ textarea:focus {
     font-size: clamp(22px, 7.2vw, 38px);
   }
 
+  .honor-copy-text {
+    max-width: none;
+  }
+
   .honor-student-visual {
+    position: relative;
+    right: auto;
+    bottom: auto;
     align-self: start;
+    z-index: 1;
     width: calc(100% + 32px);
+    height: auto;
     aspect-ratio: 1.38 / 1;
     margin: -2px -16px 0;
     border-radius: 20px;
+    filter: drop-shadow(0 14px 24px rgba(16, 42, 67, 0.10));
+    opacity: 1;
   }
 
   .honor-student-visual img {
