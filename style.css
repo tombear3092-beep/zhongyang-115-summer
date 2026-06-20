@@ -3047,8 +3047,23 @@ textarea:focus {
 }
 
 .honor-title span {
+  position: relative;
   display: block;
+  width: fit-content;
   white-space: nowrap;
+}
+
+.honor-title span:last-child::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 10px;
+  bottom: 0.04em;
+  z-index: -1;
+  height: 0.32em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 209, 102, 0.30), rgba(255, 209, 102, 0.78), rgba(255, 209, 102, 0.22));
+  transform: rotate(-0.8deg);
 }
 
 .honor-proof-panel {
