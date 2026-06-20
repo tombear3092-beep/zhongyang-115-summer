@@ -2977,17 +2977,29 @@ textarea:focus {
 }
 
 .honor-opening-copy::after {
-  content: "";
+  content: "恭賀";
   position: absolute;
-  top: 34px;
-  right: 34px;
-  width: 150px;
-  height: 150px;
+  top: 42px;
+  right: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  height: 112px;
   border-radius: 50%;
+  color: #ffd166;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: 0 2px 0 rgba(7, 48, 74, 0.22);
   background:
-    radial-gradient(circle, rgba(255, 209, 102, 0.16) 0 42%, rgba(255, 209, 102, 0) 43%),
-    radial-gradient(circle, rgba(47, 128, 237, 0.10) 0 68%, rgba(47, 128, 237, 0) 69%);
-  opacity: 0.72;
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.22) 0 18%, transparent 19%),
+    linear-gradient(145deg, #173f63, #0d2f4d);
+  border: 5px solid rgba(255, 209, 102, 0.86);
+  box-shadow:
+    0 14px 26px rgba(16, 42, 67, 0.16),
+    inset 0 0 0 6px rgba(255, 255, 255, 0.12),
+    inset 0 0 0 11px rgba(255, 209, 102, 0.22);
 }
 
 .honor-student-visual {
@@ -3113,11 +3125,16 @@ textarea:focus {
   }
 
   .honor-opening-copy::after {
-    top: 20px;
-    right: 18px;
-    width: 118px;
-    height: 118px;
-    opacity: 0.56;
+    top: 26px;
+    right: 28px;
+    width: 86px;
+    height: 86px;
+    border-width: 4px;
+    font-size: 22px;
+    box-shadow:
+      0 10px 20px rgba(16, 42, 67, 0.14),
+      inset 0 0 0 5px rgba(255, 255, 255, 0.12),
+      inset 0 0 0 9px rgba(255, 209, 102, 0.22);
   }
 
   .honor-title {
