@@ -3744,3 +3744,56 @@ textarea:focus {
     height: 40px;
   }
 }
+/* ===== Desktop only: honor section layout fix ===== */
+@media (min-width: 981px) {
+  .honor-opening-copy {
+    grid-template-columns: 1fr;
+    min-height: 360px;
+    padding: 52px 48px;
+    overflow: hidden;
+  }
+
+  .honor-copy-text {
+    position: relative;
+    z-index: 3;
+    max-width: 560px;
+  }
+
+  .honor-title {
+    max-width: 560px;
+  }
+
+  .honor-student-visual {
+    position: absolute;
+    right: 24px;
+    bottom: 10px;
+    z-index: 1;
+    width: 360px;
+    max-width: 48%;
+    aspect-ratio: auto;
+    margin: 0;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+  }
+
+  .honor-student-visual img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center bottom;
+    background: transparent;
+    filter: drop-shadow(0 16px 26px rgba(18, 48, 71, 0.16));
+  }
+
+  .honor-opening-copy::after {
+    top: 26px;
+    right: 56px;
+    width: 86px;
+    height: 86px;
+    z-index: 2;
+    opacity: 0.95;
+  }
+}
