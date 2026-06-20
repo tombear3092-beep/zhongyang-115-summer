@@ -1632,6 +1632,7 @@ textarea:focus {
 }
 .elite-advantage-content p {
   margin: 0;
+  min-height: calc(1.75em * 3);
   color: rgba(255, 255, 255, 0.92);
   font-weight: 800;
   line-height: 1.75;
@@ -1673,6 +1674,9 @@ textarea:focus {
   }
   .elite-advantage-content {
     padding: 28px 24px;
+  }
+  .elite-advantage-content p {
+    min-height: auto;
   }
   .elite-advantage-content h3 {
     font-size: 24px;
